@@ -7,6 +7,8 @@ import { ToDo } from "./pages/todos.jsx";
 
 import StarWars from "./pages/starWars.jsx";
 import SinglePeople from "./component/singlePeople.jsx";
+import SinglePlanet from "./component/singlePlanet.jsx";
+import SingleVehicle from "./component/singleVehicle.jsx";
 
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
@@ -31,9 +33,11 @@ const Layout = () => {
                         {/* <Route element={<ToDo />} path="/" /> */}
                         <Route element={<StarWars />} path="/" />
                         <Route element={<Demo />} path="/demo" />
-                        <Route element={<h1>EStoy en la vista de 4Geeks</h1>} path="/4geeks" />
+                        <Route element={<h1>Estoy en la vista de 4Geeks</h1>} path="/4geeks" />
                         <Route element={<Single />} path="/single/:thetitle" />
                         <Route element={<SinglePeople />} path="/people/:uid" />
+                        <Route element={<SinglePlanet />} path="/planet/:uid" />
+                        <Route element={<SingleVehicle />} path="/vehicle/:uid" />
                         <Route element={<h1>Not found! 404</h1>} path="*" />
                     </Routes>
                     <Footer />

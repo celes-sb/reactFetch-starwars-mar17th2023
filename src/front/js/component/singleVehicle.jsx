@@ -2,17 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-const SinglePeople = () => {
+const SingleVehicle = () => {
     const { store, actions } = useContext(Context);
     const params = useParams();
-    const [people, setPeople] = useState({})
+    const [vehicle, setVehicle] = useState({})
 
     useEffect(() => {
         const cargaDatos = async () => {
-            let { respuestaJson, response } = await actions.useFetch(`/people/${params.uid}`)
+            let { respuestaJson, response } = await actions.useFetch(`/vehicle/${params.uid}`)
             if (response.ok) {
                 console.log(respuestaJson)
-                setPeople(respuestaJson.result.properties)
+                setVehicle(respuestaJson.result.properties)
             }
         }
         cargaDatos()
@@ -21,8 +21,8 @@ const SinglePeople = () => {
 
     return (<>
 
-        Soy {people.name ? people.name : ""} con el uid {params.uid}
+        Soy {vehicle.name ? vehicle.name : ""} con el uid {params.uid}
     </>)
 }
 
-export default SinglePeople
+export default SingleVehicle;
