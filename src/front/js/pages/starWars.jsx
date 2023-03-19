@@ -36,45 +36,31 @@ const StarWars = () => {
         cargaDatos()
     }, []);
 
-    return (<>
-        <br />
-        <h1 className="text-danger">Characters</h1>
-        <ul>
+    return (
+        <>
+            <h1 className="text-danger">Characters</h1>
             {listPeople && listPeople.length > 0 ?
                 <>
                     {listPeople.map((item, index) => {
-                        return <div key={item.uid}>
-                            <CardPeople name={item.name} uid={item.uid} />
-                        </div>
+                        return <CardPeople name={item.name} uid={item.uid} />
                     })}
                 </> : <></>}
-        </ul>
-        <br />
-        <h1 className="text-danger">Planets</h1>
-        <ul>
+            <h1 className="text-danger">Planets</h1>
             {listPlanet && listPlanet.length > 0 ?
                 <>
                     {listPlanet.map((item, index) => {
-                        return <div key={item.uid}>
-                            <CardPlanet name={item.name} uid={item.uid} />
-                        </div>
+                        return <CardPlanet name={item.name} uid={item.uid} />
                     })}
                 </> : <></>}
-        </ul>
-        <br />
-        <h1 className="text-danger">Vehicles</h1>
-        <ul>
+            <h1 className="text-danger">Vehicles</h1>
             {listVehicle && listVehicle.length > 0 ?
                 <>
                     {listVehicle.map((item, index) => {
-                        return <div key={item.uid}>
-                            <CardVehicle name={item.name} uid={item.uid} />
-                        </div>
+                        return <CardVehicle name={item.name} uid={item.uid} />
                     })}
                 </> : <></>}
-        </ul>
-        <br />
-    </>)
+        </>
+    );
 }
 
 export default StarWars;
