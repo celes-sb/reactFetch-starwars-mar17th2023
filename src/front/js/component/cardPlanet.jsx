@@ -17,7 +17,7 @@ const CardPlanet = (props) => {
                             </ul>
                         </p>
                         <div className="text-center">
-                            <Link to={`/planets/${props.uid}`} className="btn btn-outline-primary me-5">Learn More!</Link>
+                            <Link to={`/planet/${props.uid}`} className="btn btn-outline-primary me-5">Learn More!</Link>
                             <button className="btn btn-outline-warning ms-5"><i className="fa-solid fa-heart"></i></button>
                         </div>
                     </div>
