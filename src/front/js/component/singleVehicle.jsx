@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { todoActions } from "../store/todos";
 
-const SingleVehicle = () => {
+const SingleVehicle = (props) => {
     const { store, actions } = useContext(Context);
     const params = useParams();
     const [vehicle, setVehicle] = useState({})
@@ -32,14 +33,14 @@ const SingleVehicle = () => {
                 <div className="row">
                     <hr className="my-4" />
                     <div class="d-flex flex-row bd-highlight mb-3">
-                        <p className="w-25 text-danger">Climate</p>
-                        <p className="w-25 text-danger">Gravity</p>
-                        <p className="w-25 text-danger">Feature 3:</p>
-                        <p className="w-25 text-danger">Feature 4:</p>
+                        <p className="w-25 text-danger">Model</p>
+                        <p className="w-25 text-danger">Manufacturer</p>
+                        <p className="w-25 text-danger">Feature 3</p>
+                        <p className="w-25 text-danger">Feature 4</p>
                     </div>
                     <div class="d-flex flex-row bd-highlight mb-3">
-                        <p className="w-25 text-danger">{ }</p>
-                        <p className="w-25 text-danger">{ }</p>
+                        <p className="w-25 text-danger">{props.model}</p>
+                        <p className="w-25 text-danger">{props.manufacturer}</p>
                         <p className="w-25 text-danger">{ }</p>
                         <p className="w-25 text-danger">{ }</p>
                     </div>
