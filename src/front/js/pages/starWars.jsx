@@ -12,21 +12,6 @@ const StarWars = () => {
     const [listPlanet, setListPlanet] = useState([])
     const [listVehicle, setListVehicle] = useState([])
 
-    const [selectedItems, setSelectedItems] = useState([]);
-    const [isHeartClicked, setIsHeartClicked] = useState(false);
-    const handleHeartClick = () => {
-        setIsHeartClicked(!isHeartClicked);
-        const selectedItem = {
-            name: props.name,
-            uid: props.uid
-        };
-        if (isHeartClicked) {
-            setSelectedItems(selectedItems.filter(item => item.uid !== selectedItem.uid));
-        } else {
-            setSelectedItems([...selectedItems, selectedItem]);
-        }
-    };
-
     //se ejecuta la primera vez que se reenderiza el componente
     useEffect(() => {
         const cargaDatos = async () => {
@@ -49,21 +34,10 @@ const StarWars = () => {
             }
         }
         cargaDatos()
-        handleHeartClick()
     }, []);
 
     return (
         <>
-            <div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="selected-items-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Selected Items: {selectedItems.length}
-                </button>
-                <ul className="dropdown-menu" aria-labelledby="selected-items-dropdown">
-                    {selectedItems.map(item => (
-                        <li key={item.uid}>{item.name}</li>
-                    ))}
-                </ul>
-            </div>
             <h1 className="text-danger">Characters</h1>
             {listPeople && listPeople.length > 0 ? (
                 <>
@@ -72,9 +46,7 @@ const StarWars = () => {
                             <CardPeople
                                 key={item.uid}
                                 name={item.name}
-                                uid={item.uid}
-                                onAdd={() => handleAddItem(item)}
-                            />
+                                uid={item.uid} />
                         );
                     })}
                 </>
@@ -89,9 +61,7 @@ const StarWars = () => {
                             <CardPlanet
                                 key={item.uid}
                                 name={item.name}
-                                uid={item.uid}
-                                onAdd={() => handleAddItem(item)}
-                            />
+                                uid={item.uid} />
                         );
                     })}
                 </>
@@ -103,12 +73,10 @@ const StarWars = () => {
                 <>
                     {listVehicle.map((item, index) => {
                         return (
-                            <cardVehicle
+                            <CardVehicle
                                 key={item.uid}
                                 name={item.name}
-                                uid={item.uid}
-                                onAdd={() => handleAddItem(item)}
-                            />
+                                uid={item.uid} />
                         );
                     })}
                 </>
@@ -116,7 +84,8 @@ const StarWars = () => {
                 <></>
             )}
         </>
-    );
-}
+    )
+};
+
 
 export default StarWars;

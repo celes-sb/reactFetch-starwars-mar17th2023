@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CardPlanet = (props) => {
-
     return (
         <div className="row">
             <div className="col-sm-4">
@@ -19,8 +18,7 @@ const CardPlanet = (props) => {
                         </p>
                         <div className="text-center">
                             <Link to={`/planet/${props.uid}`} className="btn btn-outline-primary me-5">Learn More!</Link>
-                            <button className="btn btn-outline-warning ms-5" onClick={handleHeartClick}>
-                                {isHeartClicked ? <i className="fa-solid fa-heart"></i> : <i className="far fa-heart"></i>}
+                            <button className="btn btn-outline-warning ms-5"><i className="far fa-heart"></i>
                             </button>
                         </div>
                     </div>
