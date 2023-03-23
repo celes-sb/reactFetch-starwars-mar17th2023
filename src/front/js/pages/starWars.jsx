@@ -33,7 +33,22 @@ const StarWars = () => {
                 setListVehicle(respuestaJson.results)
             }
         }
-        cargaDatos()
+        //cargaDatos()
+
+        const cargaParalelo = async () => {
+            let promesaPlanet = actions.useFetchParalelo("/planet")
+            let promesaPeople = actions.useFetchParalelo("/people")
+            let promesaVehicle = actions.useFetchParalelo("/vehicle")
+
+            let [a, b, c] = await Promise.all([promesaPeople, promesaPlanet, promesaVehicle])
+
+            a = await a.json()
+            setListPeople(a)
+            b = await b.json()
+            setListPlanet(b)
+            c = await c.json()
+            setListVehicle(c)
+        }
     }, []);
 
     return (

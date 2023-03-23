@@ -7,7 +7,7 @@ const CardPlanet = (props) => {
             <div className="col-sm-4">
                 <div className="card m-2">
                     <div className="card-body m-1 p-1">
-                        <img className="rounded img-thumbnail img-center" src="https://lumiere-a.akamaihd.net/v1/images/concord-dawn_4277a880.jpeg?region=4%2C0%2C1552%2C873" />
+                        <img className="rounded img-thumbnail img-center" src={"https://starwars-visualguide.com/assets/img/planets/" + item.uid + ".jpg"} />
                         <br />
                         <h3 className="card-title mt-2 text-center">{props.name}</h3>
                         <p className="card-text text-start ps-4 mb-2"><em>Information</em>
