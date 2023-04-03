@@ -8,9 +8,9 @@ import { todoActions } from "../store/todos";
 
 const StarWars = () => {
     const { store, actions } = useContext(Context)
-    const [listPeople, setListPeople] = useState([])
-    const [listPlanet, setListPlanet] = useState([])
-    const [listVehicle, setListVehicle] = useState([])
+    const [listPeople, setListPeople] = useState({})
+    const [listPlanet, setListPlanet] = useState({})
+    const [listVehicle, setListVehicle] = useState({})
 
     //se ejecuta la primera vez que se reenderiza el componente
     useEffect(() => {
@@ -39,17 +39,25 @@ const StarWars = () => {
             let promesaPlanet = actions.useFetchParalelo("/planet")
             let promesaPeople = actions.useFetchParalelo("/people")
             let promesaVehicle = actions.useFetchParalelo("/vehicle")
-
+            //resuelvo las tres promesas al mismo tiempo
             let [a, b, c] = await Promise.all([promesaPeople, promesaPlanet, promesaVehicle])
 
             a = await a.json()
-            setListPeople(a)
+            setListPeople(a.results)
+
             b = await b.json()
-            setListPlanet(b)
+            setListPlanet(b.results)
+
             c = await c.json()
-            setListVehicle(c)
+            setListVehicle(c.results)
         }
+        cargaParalelo()
+
     }, []);
+
+    useEffect(() => { }, [listPeople])
+    useEffect(() => { }, [listPlanet])
+    useEffect(() => { }, [listVehicle])
 
     return (
         <>

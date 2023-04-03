@@ -17,7 +17,7 @@ const CardPeople = (props) => {
                     </p>
                     <div className="text-center">
                         <Link to={`/people/${props.uid}`} className="btn btn-outline-primary me-5">Learn More!</Link>
-                        <button className="btn btn-outline-warning ms-5"><i className="far fa-heart"></i></button>
+                        <button onClick={() => { alert("like") }} className="btn btn-outline-warning ms-5"><i className="far fa-heart"></i></button>
                     </div>
                 </div>
             </div>
