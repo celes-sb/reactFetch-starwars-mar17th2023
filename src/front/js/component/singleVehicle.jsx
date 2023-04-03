@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { todoActions } from "../store/todos";
 
 const SingleVehicle = (props) => {
     const { store, actions } = useContext(Context);
@@ -18,7 +17,7 @@ const SingleVehicle = (props) => {
         }
         cargaDatos()
 
-    }, [])
+    }, [params.uid])
 
     return (<>
 

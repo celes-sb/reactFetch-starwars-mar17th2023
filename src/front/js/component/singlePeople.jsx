@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { todoActions } from "../store/todos";
 
 const SinglePeople = () => {
     const { store, actions } = useContext(Context);
@@ -18,7 +17,7 @@ const SinglePeople = () => {
         }
         cargaDatos()
 
-    }, [])
+    }, [params.uid])
 
     return (<>
         <div className="jumbotron jumbotron-fluid bg-light border rounded w-75 mx-auto mt-5 p-3 text-center">

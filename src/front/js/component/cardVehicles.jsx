@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 const CardVehicle = (props) => {
+    const { store, actions } = useContext(Context)
+
     return (
         <div className="card-container d-flex overflow-scroll" style={{ width: "400px" }}>
             <div className="card m-2 d-flex">
@@ -17,8 +20,15 @@ const CardVehicle = (props) => {
                     </p>
                     <div className="text-center">
                         <Link to={`/vehicle/${props.uid}`} className="btn btn-outline-primary me-5">Learn More!</Link>
-                        <button onClick={() => { alert("like") }} className="btn btn-outline-warning ms-5"><i className="far fa-heart"></i>
-                        </button>
+                        <button type="button" onClick={() => {
+                            actions.agregarFavorito({
+                                name: props.name,
+                                uid: props.uid,
+                                category: "vehicle",
+                                link: `/vehicle/${props.uid}`
+                            }
+                            )
+                        }} className="btn btn-outline-warning ms-5"><i className="far fa-heart"></i></button>
                     </div>
                 </div>
             </div>
