@@ -10,7 +10,7 @@ const SinglePlanet = (props) => {
 
     useEffect(() => {
         const cargaDatos = async () => {
-            let { respuestaJson, response } = await actions.useFetch(`/planets/${params.uid}`)
+            let { respuestaJson, response } = await actions.useFetch(`/planet/${params.uid}`)
             if (response.ok) {
                 console.log(respuestaJson)
                 setPlanet(respuestaJson.result.properties)
@@ -37,19 +37,19 @@ const SinglePlanet = (props) => {
                 <div className="row justify-content-center align-items-center">
                     <div className="col-md-3">
                         <p className="text-danger">Climate</p>
-                        <p className="text-danger">{props.climate}</p>
+                        <p className="text-dark">{planet.climate}</p>
                     </div>
                     <div className="col-md-3">
                         <p className="text-danger">Gravity</p>
-                        <p className="text-danger">{props.gravity}</p>
+                        <p className="text-dark">{planet.gravity}</p>
                     </div>
                     <div className="col-md-3">
-                        <p className="text-danger">Dimensions</p>
-                        <p className="text-danger">{ }</p>
+                        <p className="text-danger">Rotation Period</p>
+                        <p className="text-dark">{planet.rotation_period}</p>
                     </div>
                     <div className="col-md-3">
                         <p className="text-danger">Population</p>
-                        <p className="text-danger">{ }</p>
+                        <p className="text-dark">{planet.population}</p>
                     </div>
                 </div>
             </div>

@@ -23,11 +23,11 @@ export const Navbar = () => {
 							</button>
 							<ul className="dropdown-menu dropdown-menu-dark">
 								{store.favoritos && store.favoritos.length > 0 ? <>
-									{store.favoritos.map((item, index => {
+									{store.favoritos.map((item, index) => {
 										return <Link key={index} to={item.link} className="dropdown-item" href="#">
 											{item.name}
 										</Link>
-									}))}
+									})}
 								</> : <></>}
 							</ul>
 						</li>

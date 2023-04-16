@@ -35,19 +35,19 @@ const SinglePeople = () => {
                 <div className="row justify-content-center align-items-center">
                     <div className="col-md-3">
                         <p className="text-danger">Height</p>
-                        <p className="text-danger">{ }</p>
+                        <p className="text-dark">{people.height}</p>
                     </div>
                     <div className="col-md-3">
                         <p className="text-danger">Hair Color</p>
-                        <p className="text-danger">{ }</p>
+                        <p className="text-dark">{people.hair_color}</p>
                     </div>
                     <div className="col-md-3">
-                        <p className="text-danger">Species</p>
-                        <p className="text-danger">{ }</p>
+                        <p className="text-danger">Mass</p>
+                        <p className="text-dark">{people.mass}</p>
                     </div>
                     <div className="col-md-3">
-                        <p className="text-danger">Weapons</p>
-                        <p className="text-danger">{ }</p>
+                        <p className="text-danger">Birth Year</p>
+                        <p className="text-dark">{people.birth_year}</p>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,11 @@
   font-size: 15px;
 }
 
-.singleCardTitle {
-  font-size: 30px;
+.card-container {
+  max-width: 320px;
+}
+
+.card-body {
+  max-width: 300px;
+  margin: auto;
 }

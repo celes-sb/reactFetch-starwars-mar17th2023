@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import CardPeople from "../component/cardPeople.jsx";
 import CardPlanet from "../component/cardPlanet.jsx";
 import CardVehicle from "../component/cardVehicles.jsx";
-import { todoActions } from "../store/todos";
+//import { todoActions } from "../store/todos";
 
 const StarWars = () => {
     const { store, actions } = useContext(Context)
@@ -21,13 +21,13 @@ const StarWars = () => {
                 setListPeople(respuestaJson.results)
             }
 
-            ({ respuestaJson, response } = await actions.useFetch("/planets"))
+            ({ respuestaJson, response } = await actions.useFetch("/planet"))
             if (response.ok) {
                 console.log(respuestaJson)
                 setListPlanet(respuestaJson.results)
             }
 
-            ({ respuestaJson, response } = await actions.useFetch("/vehicles"))
+            ({ respuestaJson, response } = await actions.useFetch("/vehicle"))
             if (response.ok) {
                 console.log(respuestaJson)
                 setListVehicle(respuestaJson.results)

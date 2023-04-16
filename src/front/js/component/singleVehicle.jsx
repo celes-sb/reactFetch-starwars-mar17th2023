@@ -9,7 +9,7 @@ const SingleVehicle = (props) => {
 
     useEffect(() => {
         const cargaDatos = async () => {
-            let { respuestaJson, response } = await actions.useFetch(`/vehicles/${params.uid}`)
+            let { respuestaJson, response } = await actions.useFetch(`/vehicle/${params.uid}`)
             if (response.ok) {
                 console.log(respuestaJson)
                 setVehicle(respuestaJson.result.properties)
@@ -20,7 +20,6 @@ const SingleVehicle = (props) => {
     }, [params.uid])
 
     return (<>
-
         <div className="jumbotron jumbotron-fluid bg-light border rounded w-75 mx-auto mt-5 p-3 text-center">
             <div className="container">
                 <div className="row justify-content-center align-items-center">
@@ -36,19 +35,19 @@ const SingleVehicle = (props) => {
                 <div className="row justify-content-center align-items-center">
                     <div className="col-md-3">
                         <p className="text-danger">Model</p>
-                        <p className="text-danger">{props.model}</p>
+                        <p className="text-dark">{vehicle.model}</p>
                     </div>
                     <div className="col-md-3">
-                        <p className="text-danger">Manufacturer</p>
-                        <p className="text-danger">{props.manufacturer}</p>
+                        <p className="text-danger">Vehicle Class</p>
+                        <p className="text-dark">{vehicle.vehicle_class}</p>
                     </div>
                     <div className="col-md-3">
-                        <p className="text-danger">Speed</p>
-                        <p className="text-danger">{ }</p>
+                        <p className="text-danger">Max Atmosphering Speed</p>
+                        <p className="text-dark">{vehicle.max_atmosphering_speed}</p>
                     </div>
                     <div className="col-md-3">
-                        <p className="text-danger">Fuel</p>
-                        <p className="text-danger">{ }</p>
+                        <p className="text-danger">Passengers</p>
+                        <p className="text-dark">{vehicle.passengers}</p>
                     </div>
                 </div>
             </div>
