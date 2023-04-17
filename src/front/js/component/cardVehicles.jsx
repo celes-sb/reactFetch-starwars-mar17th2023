@@ -32,7 +32,7 @@ const CardVehicle = (props) => {
                 </div>
             </div>
         </div>
-    );
+    )
 };
 
 export default CardVehicle;

@@ -34,7 +34,7 @@ const CardPlanet = (props) => {
                 </div>
             </div>
         </div>
-    );
+    )
 };
 
 export default CardPlanet;
