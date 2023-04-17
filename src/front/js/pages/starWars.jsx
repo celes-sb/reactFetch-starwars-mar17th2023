@@ -21,13 +21,13 @@ const StarWars = () => {
                 setListPeople(respuestaJson.results)
             }
 
-            ({ respuestaJson, response } = await actions.useFetch("/planet"))
+            ({ respuestaJson, response } = await actions.useFetch("/planets"))
             if (response.ok) {
                 console.log(respuestaJson)
                 setListPlanet(respuestaJson.results)
             }
 
-            ({ respuestaJson, response } = await actions.useFetch("/vehicle"))
+            ({ respuestaJson, response } = await actions.useFetch("/vehicles"))
             if (response.ok) {
                 console.log(respuestaJson)
                 setListVehicle(respuestaJson.results)

@@ -2,13 +2,13 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./pages/home";
+import { Home } from "./pages/home.js";
 import { ToDo } from "./pages/todos.jsx";
 
 import StarWars from "./pages/starWars.jsx";
-import SinglePeople from "./component/singlePeople.jsx";
-import SinglePlanet from "./component/singlePlanet.jsx";
-import SingleVehicle from "./component/singleVehicle.jsx";
+import SinglePeople from "./pages/singlePeople.jsx";
+import SinglePlanet from "./pages/singlePlanet.jsx";
+import SingleVehicle from "./pages/singleVehicle.jsx";
 
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
