@@ -1,5 +1,5 @@
 export const favoritosStore = {
-    favoritos: [], // [{name: "Luke", uid: 1, categoria: "people", link: "/people/1"}, ()]
+    favoritos: [],
 }
 
 export function favoritosActions(getStore, getActions, setStore) {

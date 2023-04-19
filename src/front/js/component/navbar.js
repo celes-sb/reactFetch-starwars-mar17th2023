@@ -20,28 +20,30 @@ export const Navbar = () => {
 					<img className="img-responsive h-25 w-25" src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254" />
 				</Link>
 				<div>
-					<div className="nav-item dropdown h5 me-5">
-						<div className="nav-link dropdown-toggle text-warning me-5" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Favorites
+					<div className="nav-item dropdown me-5">
+						<div className="dropdown">
+							<button className="btn btn-warning dropdown-toggle rounded-pill me-5" type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+								Favorites
+							</button>
+							<ul className="dropdown-menu list-unstyled" style={{ width: '200px' }} aria-labelledby="navbarDropdown">
+								{store.favoritos && store.favoritos.length > 0 ? (
+									<>
+										{store.favoritos.map((item, index) => {
+											return (
+												<div key={index} className="d-flex justify-content-between align-items-center" style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
+													<Link to={item.link} style={{ color: 'black', textDecoration: 'none', fontSize: '15px' }}>
+														{item.name}
+													</Link>
+													<i className="fas fa-trash-alt text-danger h6 p-1" onClick={() => actions.handleDelete(index)} style={{ cursor: 'pointer' }}></i>
+												</div>
+											);
+										})}
+									</>
+								) : (
+									<></>
+								)}
+							</ul>
 						</div>
-						<ul className="dropdown-menu list-unstyled" style={{ width: '200px' }} aria-labelledby="navbarDropdown">
-							{store.favoritos && store.favoritos.length > 0 ? (
-								<>
-									{store.favoritos.map((item, index) => {
-										return (
-											<div key={index} className="d-flex justify-content-between align-items-center" style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
-												<Link to={item.link} style={{ color: 'black', textDecoration: 'none', fontSize: '15px' }}>
-													{item.name}
-												</Link>
-												<i className="fas fa-trash-alt text-danger h6 p-1" onClick={() => actions.handleDelete(index)} style={{ cursor: 'pointer' }}></i>
-											</div>
-										);
-									})}
-								</>
-							) : (
-								<></>
-							)}
-						</ul>
 					</div>
 				</div>
 			</div>

@@ -1,20 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import { todoActions } from "../store/todos";
 
 const CardPeople = (props) => {
     const { store, actions } = useContext(Context)
 
     return (
-        <div className="card-container d-flex flex-row overflow-scroll">
-            <div className="card-body p-1 border">
-                <img className="rounded img-thumbnail img-center" src={"https://starwars-visualguide.com/assets/img/characters/" + item.uid + ".jpg"} />
-                <h4 className="card-title mt-2 text-center">{props.name}</h4>
-                <p className="card-text text-start ps-4 mb-2"><em>Information</em></p>
+        <div className="card-container d-flex flex-row overflow-scroll bg-whiter">
+            <div className="card-body p-3">
+                <img className="img rounded img-thumbnail img-center" src={"https://starwars-visualguide.com/assets/img/characters/" + props.uid + ".jpg"} />
+                <h5 className="card-title mt-2 text-center">{props.name}</h5>
                 <ul className="text-start ps-4">
-                    <li key={`height_${props.uid}`}>Height: {props.height}</li>
-                    <li key={`mass_${props.uid}`}>Mass: {props.mass}</li>
+                    <li key={`uid${props.uid}`}>UID: {props.uid}</li>
+                    <li key={`mass_${props.uid}`}>Gender: {props.gender}</li>
                 </ul>
                 <div className="text-center">
                     <Link to={`/people/${props.uid}`} className="btn btn-outline-primary me-5">Learn More!</Link>

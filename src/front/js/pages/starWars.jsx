@@ -43,15 +43,12 @@ const StarWars = () => {
             let [a, b, c] = await Promise.all([promesaPeople, promesaPlanet, promesaVehicle])
 
             a = await a.json()
-            console.log(a)
             setListPeople(a.results)
 
             b = await b.json()
-            console.log(b)
             setListPlanet(b.results)
 
             c = await c.json()
-            console.log(c)
             setListVehicle(c.results)
         }
         cargaParalelo()
@@ -64,57 +61,68 @@ const StarWars = () => {
 
     return (
         <>
-            <h1 className="text-danger">Characters</h1>
-            {listPeople && listPeople.length > 0 ? (
-                <div className="scrolling-wrapper">
-                    {listPeople.map((item, index) => {
-                        return (
-                            <CardPeople
-                                key={item.uid}
-                                name={item.name}
-                                uid={item.uid}
-                            />
-                        );
-                    })}
+            <div className="section">
+                <h1 className="text-danger" style={{ fontFamily: "monospace" }}>Characters</h1>
+                <div className="card-container">
+                    {listPeople && listPeople.length > 0 ? (
+                        <div className="card-scroll">
+                            {listPeople.map((item, index) => {
+                                return (
+                                    <CardPeople
+                                        key={item.uid}
+                                        name={item.name}
+                                        uid={item.uid}
+                                    />
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </div>
-            ) : (
-                <></>
-            )}
-            <h1 className="text-danger">Planets</h1>
-            {listPlanet && listPlanet.length > 0 ? (
-                <div className="scrolling-wrapper">
-                    {listPlanet.map((item, index) => {
-                        return (
-                            <CardPlanets
-                                key={item.uid}
-                                name={item.name}
-                                uid={item.uid}
-                            />
-                        );
-                    })}
+            </div>
+            <div className="section">
+                <h1 className="text-danger" style={{ fontFamily: "monospace" }}>Planets</h1>
+                <div className="card-container">
+                    {listPlanet && listPlanet.length > 0 ? (
+                        <div className="card-scroll">
+                            {listPlanet.map((item, index) => {
+                                return (
+                                    <CardPlanets
+                                        key={item.uid}
+                                        name={item.name}
+                                        uid={item.uid}
+                                    />
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </div>
-            ) : (
-                <></>
-            )}
-            <h1 className="text-danger">Vehicles</h1>
-            {listVehicle && listVehicle.length > 0 ? (
-                <div className="scrolling-wrapper">
-                    {listVehicle.map((item, index) => {
-                        return (
-                            <CardVehicles
-                                key={item.uid}
-                                name={item.name}
-                                uid={item.uid}
-                            />
-                        );
-                    })}
+            </div>
+            <div className="section">
+                <h1 className="text-danger" style={{ fontFamily: "monospace" }}>Vehicles</h1>
+                <div className="card-container">
+                    {listVehicle && listVehicle.length > 0 ? (
+                        <div className="card-scroll">
+                            {listVehicle.map((item, index) => {
+                                return (
+                                    <CardVehicles
+                                        key={item.uid}
+                                        name={item.name}
+                                        uid={item.uid}
+                                    />
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </div>
-            ) : (
-                <></>
-            )}
+            </div>
         </>
-    )
-};
+    );
+}
 
-
-export default StarWars;
+export default StarWars
