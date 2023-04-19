@@ -36,8 +36,8 @@ const Layout = () => {
                         <Route element={<h1>Estoy en la vista de 4Geeks</h1>} path="/4geeks" />
                         <Route element={<Single />} path="/single/:thetitle" />
                         <Route element={<SinglePeople />} path="/people/:uid" />
-                        <Route element={<SinglePlanet />} path="/planet/:uid" />
-                        <Route element={<SingleVehicle />} path="/vehicle/:uid" />
+                        <Route element={<SinglePlanet />} path="/planets/:uid" />
+                        <Route element={<SingleVehicle />} path="/vehicles/:uid" />
                         <Route element={<h1>Not found! 404</h1>} path="*" />
                     </Routes>
                     <Footer />

@@ -9,7 +9,7 @@ const SingleVehicle = () => {
 
     useEffect(() => {
         const cargaDatos = async () => {
-            let { respuestaJson, response } = await actions.useFetch(`/vehicle/${params.uid}`)
+            let { respuestaJson, response } = await actions.useFetch(`/vehicles/${params.uid}`)
             if (response.ok) {
                 console.log(respuestaJson)
                 setVehicle(respuestaJson.result.properties)

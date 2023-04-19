@@ -9,7 +9,7 @@ const CardPeople = (props) => {
     return (
         <div className="card-container d-flex flex-row overflow-scroll">
             <div className="card-body p-1 border">
-                <img className="rounded img-thumbnail img-center" /*src={"https://starwars-visualguide.com/assets/img/characters/" + item.uid + ".jpg"} */ />
+                <img className="rounded img-thumbnail img-center" src={"https://starwars-visualguide.com/assets/img/characters/" + item.uid + ".jpg"} />
                 <h4 className="card-title mt-2 text-center">{props.name}</h4>
                 <p className="card-text text-start ps-4 mb-2"><em>Information</em></p>
                 <ul className="text-start ps-4">

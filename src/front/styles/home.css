@@ -8,12 +8,13 @@
 .lead {
   font-size: 15px;
 }
-
-.card-container {
-  max-width: 320px;
+.scrolling-wrapper {
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 
-.card-body {
-  max-width: 300px;
-  margin: auto;
+.scrolling-wrapper > * {
+  display: inline-block;
+  width: 300px;
+  margin-right: 15px;
 }

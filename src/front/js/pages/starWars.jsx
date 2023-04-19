@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import CardPeople from "../component/cardPeople.jsx";
-import CardPlanet from "../component/cardPlanet.jsx";
-import CardVehicle from "../component/cardVehicles.jsx";
+import CardPlanets from "../component/cardPlanets.jsx";
+import CardVehicles from "../component/cardVehicles.jsx";
 //import { todoActions } from "../store/todos";
 
 const StarWars = () => {
@@ -36,19 +36,22 @@ const StarWars = () => {
         //cargaDatos()
 
         const cargaParalelo = async () => {
-            let promesaPlanet = actions.useFetchParalelo("/planet")
             let promesaPeople = actions.useFetchParalelo("/people")
-            let promesaVehicle = actions.useFetchParalelo("/vehicle")
+            let promesaPlanet = actions.useFetchParalelo("/planets")
+            let promesaVehicle = actions.useFetchParalelo("/vehicles")
             //resuelvo las tres promesas al mismo tiempo
             let [a, b, c] = await Promise.all([promesaPeople, promesaPlanet, promesaVehicle])
 
             a = await a.json()
+            console.log(a)
             setListPeople(a.results)
 
             b = await b.json()
+            console.log(b)
             setListPlanet(b.results)
 
             c = await c.json()
+            console.log(c)
             setListVehicle(c.results)
         }
         cargaParalelo()
@@ -63,46 +66,49 @@ const StarWars = () => {
         <>
             <h1 className="text-danger">Characters</h1>
             {listPeople && listPeople.length > 0 ? (
-                <>
+                <div className="scrolling-wrapper">
                     {listPeople.map((item, index) => {
                         return (
                             <CardPeople
                                 key={item.uid}
                                 name={item.name}
-                                uid={item.uid} />
+                                uid={item.uid}
+                            />
                         );
                     })}
-                </>
+                </div>
             ) : (
                 <></>
             )}
             <h1 className="text-danger">Planets</h1>
             {listPlanet && listPlanet.length > 0 ? (
-                <>
+                <div className="scrolling-wrapper">
                     {listPlanet.map((item, index) => {
                         return (
-                            <CardPlanet
+                            <CardPlanets
                                 key={item.uid}
                                 name={item.name}
-                                uid={item.uid} />
+                                uid={item.uid}
+                            />
                         );
                     })}
-                </>
+                </div>
             ) : (
                 <></>
             )}
             <h1 className="text-danger">Vehicles</h1>
             {listVehicle && listVehicle.length > 0 ? (
-                <>
+                <div className="scrolling-wrapper">
                     {listVehicle.map((item, index) => {
                         return (
-                            <CardVehicle
+                            <CardVehicles
                                 key={item.uid}
                                 name={item.name}
-                                uid={item.uid} />
+                                uid={item.uid}
+                            />
                         );
                     })}
-                </>
+                </div>
             ) : (
                 <></>
             )}

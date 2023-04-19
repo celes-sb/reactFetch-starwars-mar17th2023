@@ -3,6 +3,13 @@ export const favoritosStore = {
 }
 
 export function favoritosActions(getStore, getActions, setStore) {
+    const handleDelete = (index) => {
+        let store = getStore();
+        let arrTemp = store.favoritos.slice(); //copio estado centralizado
+        arrTemp.splice(index, 1);
+        setStore({ ...store, favoritos: arrTemp });
+    }
+
     return {
         agregarFavorito: async (objeto) => {
             let store = getStore()
@@ -19,5 +26,7 @@ export function favoritosActions(getStore, getActions, setStore) {
             setStore({ ...store, favoritos: arrTemp }) //[...favoritos, objeto]
             return true;
         },
+
+        handleDelete: handleDelete,
     }
 }

@@ -9,7 +9,7 @@ const SinglePlanet = () => {
 
     useEffect(() => {
         const cargaDatos = async () => {
-            let { respuestaJson, response } = await actions.useFetch(`/planet/${params.uid}`)
+            let { respuestaJson, response } = await actions.useFetch(`/planets/${params.uid}`)
             if (response.ok) {
                 console.log(respuestaJson)
                 setPlanet(respuestaJson.result.properties)
