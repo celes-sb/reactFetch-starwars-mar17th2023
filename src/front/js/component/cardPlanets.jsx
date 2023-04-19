@@ -11,7 +11,7 @@ const CardPlanets = (props) => {
                 <img className="img rounded img-thumbnail img-center" src={"https://starwars-visualguide.com/assets/img/planets/" + props.uid + ".jpg"} />
                 <h5 className="card-title mt-2 text-center">{props.name}</h5>
                 <ul className="text-start ps-4">
-                    <li key={`uid${props.uid}`}>UID: {props.uid}</li>
+                    <li key={`climate_${props.uid}`}>Climate: {props.climate}</li>
                     <li key={`gravity_${props.uid}`}>Gravity: {props.gravity}</li>
                 </ul>
                 <div className="text-center">

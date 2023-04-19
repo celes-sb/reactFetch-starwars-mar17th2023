@@ -11,7 +11,7 @@ const CardVehicles = (props) => {
                 <img className="img rounded img-thumbnail img-center" src={"https://starwars-visualguide.com/assets/img/vehicles/" + props.uid + ".jpg"} alt="Vehicle Image" />
                 <h5 className="card-title mt-2 text-center">{props.name}</h5>
                 <ul className="text-start ps-4">
-                    <li key={`uid_${props.uid}`}>UID: {props.uid}</li>
+                    <li key={`manufacturer${props.uid}`}>Manufacturer: {props.manufacturer}</li>
                     <li key={`model_${props.uid}`}>Model: {props.model}</li>
                 </ul>
                 <div className="text-center">

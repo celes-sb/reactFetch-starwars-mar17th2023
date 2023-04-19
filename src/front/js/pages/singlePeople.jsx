@@ -4,8 +4,6 @@ import { Context } from "../store/appContext";
 
 const SinglePeople = () => {
     const { store, actions } = useContext(Context);
-    const params = useParams();
-    const [people, setPeople] = useState({})
 
     useEffect(() => {
         const cargaDatos = async () => {
