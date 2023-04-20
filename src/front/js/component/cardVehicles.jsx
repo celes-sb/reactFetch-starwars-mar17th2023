@@ -17,6 +17,15 @@ const CardVehicles = (props) => {
                 <div className="text-center">
                     <Link to={`/vehicles/${props.uid}`} className="btn btn-outline-primary me-5">Learn More!</Link>
                     <button type="button" onClick={() => {
+                        actions.addReadLater({
+                            name: props.name,
+                            uid: props.uid,
+                            category: "vehicles",
+                            link: `/vehicles/${props.uid}`
+                        }
+                        )
+                    }} className="btn btn-outline-success me-2"><i className="far fa-plus"></i></button>
+                    <button type="button" onClick={() => {
                         actions.agregarFavorito({
                             name: props.name,
                             uid: props.uid,
@@ -24,7 +33,7 @@ const CardVehicles = (props) => {
                             link: `/vehicles/${props.uid}`
                         }
                         )
-                    }} className="btn btn-outline-warning ms-5"><i className="far fa-heart"></i></button>
+                    }} className="btn btn-outline-warning"><i className="far fa-heart"></i></button>
                 </div>
             </div>
         </div>

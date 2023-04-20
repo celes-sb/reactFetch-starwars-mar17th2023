@@ -2,6 +2,7 @@ import { exampleStore, exampleActions } from "./exampleStore.js"; //destructured
 import { usuarioStore, usuarioActions } from "./usuario.js";
 import { todoStore, todoActions } from "./todos.js";
 import { favoritosStore, favoritosActions } from "./favoritos.js";
+import { readLaterStore, readLaterActions } from "./readlater.js";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -23,6 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			...usuarioStore,
 			...todoStore,
 			...favoritosStore,
+			...readLaterStore,
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -50,6 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			...usuarioActions(getStore, getActions, setStore),
 			...todoActions(getStore, getActions, setStore),
 			...favoritosActions(getStore, getActions, setStore),
+			...readLaterActions(getStore, getActions, setStore),
 			useFetch: async (endpoint, body, method = "GET") => {
 				let url = process.env.BACKEND_URL + endpoint
 				console.log(url)
