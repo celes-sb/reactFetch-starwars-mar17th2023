@@ -9,11 +9,7 @@ const CardVehicles = (props) => {
         <div className="card-container d-flex flex-row overflow-scroll bg-white">
             <div className="card-body p-3">
                 <img className="img rounded img-thumbnail img-center" src={"https://starwars-visualguide.com/assets/img/vehicles/" + props.uid + ".jpg"} alt="Vehicle Image" />
-                <h5 className="card-title mt-2 text-center">{props.name}</h5>
-                <ul className="text-start ps-4">
-                    <li key={`manufacturer${props.uid}`}>Manufacturer: {props.manufacturer}</li>
-                    <li key={`model_${props.uid}`}>Model: {props.model}</li>
-                </ul>
+                <h5 className="card-title mt-3 mb-3 text-center">{props.name}</h5>
                 <div className="text-center">
                     <Link to={`/vehicles/${props.uid}`} className="btn btn-outline-primary me-5">Learn More!</Link>
                     <button type="button" onClick={() => {
